@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Data</title>
+<style>
+        /* Basic CSS for Book Listing Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c8f3fa;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #232f3e;
+    color: #fff;
+    margin: 0;
+}
+
+#bookList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 50px;
+    padding: 20px;
+}
+
+#bookList div {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 50px;
+}
+
+#bookList div p {
+    margin: 5px 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* Styles for Search Container */
+.search-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-container input[type=text] {
+    width: 400px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #3945e9;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* Styles for Action Buttons */
+.action-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    margin-left: 10px;
+}
+    </style> <!-- Link to the CSS file -->
+</head>
+<body>
+    <h1>Book Data</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search books...">
+        <button onclick="searchBooks()">Search</button>
+        <button onclick="returnBook('/return')">Return Book</button>
+        <button onclick="issueBook('/borrow')">Issue Book</button>
+    </div>
+    <div id="bookList"></div>
+
+    <script>
+        async function fetchBookData() {
+            try {
+                const response = await fetch('test.json'); // Replace 'test.json' with your JSON file URL
+                const data = await response.json();
+
+                const bookListElement = document.getElementById('bookList');
+                data.message.forEach(book => {
+                    const bookDiv = document.createElement('div');
+                    bookDiv.innerHTML = `
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/006/800/199/small/creative-abstract-book-feather-logo-design-vector.jpg" width="250px">
+                        <p><strong>Title:</strong> ${book.title}</p>
+                        <p><strong>Authors:</strong> ${book.authors}</p>
+                        <p><strong>Rating:</strong> ${book.average_rating}</p>
+                        <p><strong>Book ID:</strong> ${book.bookID}</p>
+                        <p><strong>ISBN:</strong> ${book.isbn}</p>
+                        <p><strong>Language Code:</strong> ${book.language_code}</p>
+                        <p><strong>Number of Pages:</strong> ${book['  num_pages']}</p>
+                        <p><strong>Ratings Count:</strong> ${book.ratings_count}</p>
+                        <p><strong>Text Reviews Count:</strong> ${book.text_reviews_count}</p>
+                        <p><strong>Publication Date:</strong> ${book.publication_date}</p>
+                        <p><strong>Publisher:</strong> ${book.publisher}</p>
+                    `;
+                    bookListElement.appendChild(bookDiv);
+                });
+            } catch (error) {
+                console.error('Error fetching book data:', error);
+            }
+        }
+
+        function issueBook(page) {
+            window.location.href = page; 
+        }
+        function returnBook() {
+        window.location.href = '/return'; // Redirect to the '/return' route
+    }
+
+
+        window.onload = fetchBookData;
+    </script>
+</body>
+</html>

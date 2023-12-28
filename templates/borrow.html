@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Taking</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #47686d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      width: 30%;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .message-box {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+    input[type="text"] {
+      width: calc(100% - 12px);
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 8px 12px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form action="/borrow" method="POST" onsubmit="captureAndSubmitDateTime('/borrow')">
+      <div class="message-box">
+        <p>You need to return the book within 7 days to avoid charges.</p>
+      </div>
+      <div class="form-group">
+        <label for="bookName">Book Name:</label>
+        <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name" required>
+      </div>
+      <input type="hidden" id="borrowDate" name="borrowDate">
+      <button type="submit" onclick="openNewPage()">Borrow Book</button>
+    </form>
+  </div>
+
+  <script>
+    function openNewPage() {
+  window.open('./index', '_blank');
+}
+
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Return Book & Submit Feedback</title>
+  <style>
+    /* Basic CSS styles for the form */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #cfa9a9;
+      margin-top: 200px;
+      padding: 0;
+    }
+
+    .book-form {
+      width: 50%;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .book-form label,
+    .book-form input,
+    .book-form select {
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .book-form input,
+    .book-form select {
+      width: calc(100% - 12px);
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+
+    .book-form button {
+      padding: 8px 12px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .book-form button:hover {
+      background-color: #882929;
+    }
+  </style>
+</head>
+<body>
+  <form action="/return" method="POST" class="book-form" onsubmit="calculateBookCost()">
+    <label for="bookName">Book Name:</label>
+    <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name" required>
+    <label for="feedback">Feedback:</label>
+    <input type="text" id="feedback" name="feedback" placeholder="Enter Feedback">
+    <label for="stars">Rate our library:</label>
+    <select id="stars" name="stars">
+      <option value="5">5 stars</option>
+      <option value="4">4 stars</option>
+      <option value="3">3 stars</option>
+      <option value="2">2 stars</option>
+      <option value="1">1 star</option>
+    </select>
+    <button type="submit">Return Book & Submit Feedback</button>
+  </form>
+</body>
+</html>

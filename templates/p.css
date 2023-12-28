@@ -1,0 +1,75 @@
+/* Basic CSS for Book Listing Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #c8f3fa;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #232f3e;
+    color: #fff;
+    margin: 0;
+}
+
+#bookList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Display four books per row */
+    gap: 50px;
+    padding: 20px;
+}
+
+#bookList div {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-bottom: 50px;
+}
+
+#bookList div p {
+    margin: 5px 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* Styles for Search Container */
+.search-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-container input[type=text] {
+    width: 400px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #3945e9;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* Styles for Action Buttons */
+.action-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.action-buttons button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    margin-left: 10px;
+}

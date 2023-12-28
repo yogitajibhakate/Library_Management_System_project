@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LS</title>
+    <style>
+        body {
+            background-image: url('https://www.skoolbeep.com/blog/wp-content/uploads/2020/12/WHAT-IS-THE-PURPOSE-OF-A-LIBRARY-MANAGEMENT-SYSTEM-min.png'); 
+            background-repeat: no-repeat;
+            background-size: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            padding-top: 20px; /* Added padding-top for spacing */
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: -700px;
+        }
+        input[type="text"] {
+            width: 700px;
+            height: 35px;
+            margin-right: 10px; /* Added margin to separate search box from buttons */
+        }
+        .btn-container {
+            display: flex;
+            align-items: center;
+            margin-top: 5px; /* Adjusted margin */
+        }
+
+        .logo {
+            margin-right: 1100px;  
+            margin-top: -70px;
+        }
+
+        .login-signup-btn {
+            width: 120px;
+            height: 40px;
+            background-color: hsl(231, 96%, 27%);
+            color: #ffffff;
+            margin: 0 5px; /* Adjusted margin */
+            text-align: center; /* Center aligns the text */
+            line-height: 40px; /* Vertically centers the text */
+        }
+    </style>
+    <script>
+        
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+<div class="search-container">
+    <input type="text" placeholder="Search your books">
+    <div class="btn-container">
+        <button onclick="redirectTo('/sign_in');" class="login-signup-btn"><b>Login</b></button>
+        <button onclick="redirectTo('/sign_up');" class="login-signup-btn"><b>Sign Up</b></button>
+    </div>
+</div>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVU6HPiNO1B3aQTn0hjUSaOJwt7VykxmQndaxgjqEcY3CFKdcw4uoHoR9UksBaN9NxW8g&usqp=CAU" width="4%" class="logo">
+</body>
+</html>

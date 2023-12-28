@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time</title>
+</head>
+<script>
+    function storeCurrentDate() {
+        var currentDate = new Date();
+        
+        var formattedDate = currentDate.getFullYear() + '-' +
+                            ('0' + (currentDate.getMonth() + 1)).slice(-2) + '-' +
+                            ('0' + currentDate.getDate()).slice(-2) + ' ' +
+                            ('0' + currentDate.getHours()).slice(-2) + ':' +
+                            ('0' + currentDate.getMinutes()).slice(-2) + ':' +
+                            ('0' + currentDate.getSeconds()).slice(-2);
+        
+        var storedDate = formattedDate;
+        
+        document.getElementById('currentDate').textContent = "Stored Current Date: " + storedDate;
+    }
+    
+    window.onload = storeCurrentDate;
+</script>
+<body>
+    <h1>Current Time</h1>
+    <p>The current time is: {{ current_time }}</p>
+
+    <!-- Display the stored date here -->
+    <p id="currentDate"></p>
+
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var bookName = urlParams.get('bookName');
+        document.getElementById('currentDate').textContent = "Book Name: " + bookName;
+    </script>
+</body>
+</html>
